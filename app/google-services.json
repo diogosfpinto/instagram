@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "315895795040",
+    "firebase_url": "https://instagram-f2b1b.firebaseio.com",
+    "project_id": "instagram-f2b1b",
+    "storage_bucket": "instagram-f2b1b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315895795040:android:1abd92f68a9c9cd73e2205",
+        "android_client_info": {
+          "package_name": "com.diogopinto.instagram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "315895795040-b4i0jkvmb4o08nvfnm4n3p58sfu108lj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diogopinto.instagram",
+            "certificate_hash": "e03280134e29adaa5dcd8259d533d4388bd94a85"
+          }
+        },
+        {
+          "client_id": "315895795040-meo24d6optl3k194gvrufesdpqm1ndqe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqPPewcYfC4y9wOA6Aanh5wExvE0dp3Z4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "315895795040-meo24d6optl3k194gvrufesdpqm1ndqe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
