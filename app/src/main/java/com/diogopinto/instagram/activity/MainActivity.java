@@ -1,8 +1,10 @@
-package com.diogopinto.instagram;
+package com.diogopinto.instagram.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.diogopinto.instagram.R;
 
 public class MainActivity extends AppCompatActivity {
 
