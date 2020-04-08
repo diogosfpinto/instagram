@@ -36,8 +36,6 @@ public class CadastroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
-        botaoCadastrar = findViewById(R.id.buttonCadastrar);
-        progressBar = findViewById(R.id.progressCadastro);
 
         progressBar.setVisibility(View.GONE);
         inicializarComponentes();
@@ -120,5 +118,7 @@ public class CadastroActivity extends AppCompatActivity {
         campoNome = findViewById(R.id.editCadastroNome);
         campoEmail = findViewById(R.id.editCadastroEmail);
         campoSenha = findViewById(R.id.editCadastroSenha);
+        botaoCadastrar = findViewById(R.id.buttonCadastrar);
+        progressBar = findViewById(R.id.progressCadastro);
     }
 }
