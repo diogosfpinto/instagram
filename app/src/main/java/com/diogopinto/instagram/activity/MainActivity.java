@@ -1,7 +1,10 @@
 package com.diogopinto.instagram.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,7 +14,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.diogopinto.instagram.R;
+import com.diogopinto.instagram.fragment.FeedFragment;
+import com.diogopinto.instagram.fragment.PerfilFragment;
+import com.diogopinto.instagram.fragment.PesquisaFragment;
+import com.diogopinto.instagram.fragment.PostagemFragment;
 import com.diogopinto.instagram.helper.ConfiguracaoFirebase;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
@@ -32,7 +40,45 @@ public class MainActivity extends AppCompatActivity {
 
 //        configurar bottom navigation
         configurarBottomNavigationView();
+
+//        Carrega primeiramente o feed de noticias
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.viewPage, new FeedFragment()).commit();
+
     }//onCreate
+
+    /**
+     * Método responsável por tratar eventos de click na BottomNavigation
+     * @param viewEx
+      */
+
+    private void habilitarNavegacao(BottomNavigationViewEx viewEx){
+        viewEx.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                switch (menuItem.getItemId()){
+                    case R.id.ic_home :
+                        fragmentTransaction.replace(R.id.viewPage, new FeedFragment()).commit();
+                        return true;
+                    case R.id.ic_pesquisa :
+                        fragmentTransaction.replace(R.id.viewPage, new PesquisaFragment()).commit();
+                        return true;
+                    case R.id.ic_postagem :
+                        fragmentTransaction.replace(R.id.viewPage, new PostagemFragment()).commit();
+                        return true;
+                    case R.id.ic_perfil :
+                        fragmentTransaction.replace(R.id.viewPage, new PerfilFragment()).commit();
+                        return true;
+                }
+                return false;
+            }
+        });
+    }
 
     /**
      * Método responsável por criar a BottomNAvigation*/
@@ -41,10 +87,13 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationViewEx bottomNavigationViewEx = findViewById(R.id.bottomNavigation);
 
         //faz configurações iniciais do Bottom Navigation
-        bottomNavigationViewEx.enableAnimation(false);
+        bottomNavigationViewEx.enableAnimation(true);
         bottomNavigationViewEx.enableItemShiftingMode(false);
-        bottomNavigationViewEx.enableShiftingMode(true);
+        bottomNavigationViewEx.enableShiftingMode(false);
         bottomNavigationViewEx.setTextVisibility(false);
+
+//        Habilitar fragmentos
+        habilitarNavegacao(bottomNavigationViewEx);
     }
 
     @Override
