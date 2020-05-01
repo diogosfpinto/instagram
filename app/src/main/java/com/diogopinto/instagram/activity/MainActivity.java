@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import com.diogopinto.instagram.R;
 import com.diogopinto.instagram.helper.ConfiguracaoFirebase;
 import com.google.firebase.auth.FirebaseAuth;
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +29,22 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
         toolbar.setTitle("Instagram 2");
         setSupportActionBar(toolbar);
+
+//        configurar bottom navigation
+        configurarBottomNavigationView();
+    }//onCreate
+
+    /**
+     * Método responsável por criar a BottomNAvigation*/
+    private void configurarBottomNavigationView(){
+
+        BottomNavigationViewEx bottomNavigationViewEx = findViewById(R.id.bottomNavigation);
+
+        //faz configurações iniciais do Bottom Navigation
+        bottomNavigationViewEx.enableAnimation(false);
+        bottomNavigationViewEx.enableItemShiftingMode(false);
+        bottomNavigationViewEx.enableShiftingMode(true);
+        bottomNavigationViewEx.setTextVisibility(false);
     }
 
     @Override
