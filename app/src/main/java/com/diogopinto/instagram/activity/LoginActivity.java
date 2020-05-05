@@ -96,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void cadastrarUsuario(View view){
+        progressBar.setVisibility(View.VISIBLE);
         Intent intent = new Intent(this, CadastroActivity.class);
         startActivity(intent);
     }

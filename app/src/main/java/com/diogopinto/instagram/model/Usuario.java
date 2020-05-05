@@ -1,13 +1,41 @@
 package com.diogopinto.instagram.model;
 
+import com.diogopinto.instagram.helper.ConfiguracaoFirebase;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Exclude;
+
 public class Usuario {
 
     private String nome;
     private String email;
     private String senha;
+    private String id;
+    private String caminhoFoto;
 
     public String getNome() {
         return nome;
+    }
+
+    public void salvar(){
+        DatabaseReference databaseReference = ConfiguracaoFirebase.getFirebase();
+        DatabaseReference usuariosRef = databaseReference.child("usuarios").child(getId());
+        usuariosRef.setValue(this);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getCaminhoFoto() {
+        return caminhoFoto;
+    }
+
+    public void setCaminhoFoto(String caminhoFoto) {
+        this.caminhoFoto = caminhoFoto;
     }
 
     public void setNome(String nome) {
@@ -22,6 +50,7 @@ public class Usuario {
         this.email = email;
     }
 
+    @Exclude
     public String getSenha() {
         return senha;
     }
