@@ -7,4 +7,8 @@
     <string name="publicacoes">Publicações</string>
     <string name="seguidores">Seguidores</string>
     <string name="seguindo">Seguindo</string>
+    <string name="numero_seguidores">0</string>
+    <string name="numero_publicacoes">0</string>
+    <string name="numero_seguindo">0</string>
+    <string name="editar_perfil">Editar Perfil</string>
 </resources>
